@@ -1,4 +1,4 @@
-package main
+package challenges
 
 import (
 	"strings"
@@ -16,7 +16,7 @@ func TestDayOnePartOne(t *testing.T) {
 
 	input := strings.Split(data, "\n")
 
-	ans, err := DayOne{}.solvePartOne(input)
+	ans, err := DayOne{}.SolvePartOne(input)
 
 	if err != nil {
 		t.Fatal(err)
@@ -38,7 +38,7 @@ func TestDayOnePartTwo(t *testing.T) {
 
 	input := strings.Split(data, "\n")
 
-	ans, err := DayOne{}.solvePartTwo(input)
+	ans, err := DayOne{}.SolvePartTwo(input)
 
 	if err != nil {
 		t.Error(err)

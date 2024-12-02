@@ -4,6 +4,7 @@ import (
 	"flag"
 	"log"
 
+	c "aoc.abitofsoftware.com/internal/challenges"
 	"aoc.abitofsoftware.com/internal/data"
 )
 
@@ -12,13 +13,9 @@ var flags struct {
 	part int
 }
 
-type Challenge interface {
-	solvePartOne(input []string) (string, error)
-	solvePartTwo(input []string) (string, error)
-}
-
-var challenges = map[int]Challenge{
-	1: DayOne{},
+var challenges = map[int]c.Challenge{
+	1: c.DayOne{},
+	2: c.DayTwo{},
 }
 
 func main() {
@@ -44,18 +41,22 @@ func main() {
 
 	c := challenges[flags.day]
 	if c == nil {
-		log.Fatal("Challenge does not exist")
+		log.Fatal("Challenge does not exist, did you forget to add it?")
 	}
 
 	var ans string
 
 	if flags.part == 1 {
-		ans, err = c.solvePartOne(input)
+		ans, err = c.SolvePartOne(input)
 	}
 
 	if flags.part == 2 {
-		ans, err = c.solvePartTwo(input)
+		ans, err = c.SolvePartTwo(input)
 	}
 
-	log.Printf("Solution to day %d part %d is '%s'", flags.day, flags.part, ans)
+	if err != nil {
+		log.Fatal("Challenge failed to be solved due to an error", err)
+	} else {
+		log.Printf("Solution to day %d part %d is '%s'", flags.day, flags.part, ans)
+	}
 }

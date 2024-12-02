@@ -18,6 +18,10 @@ func ReadInput(day int) ([]string, error) {
 
 	lines := strings.Split(string(data), "\n")
 
+	if len(lines[len(lines)-1]) == 0 {
+		lines = lines[:len(lines)-1]
+	}
+
 	if err != nil {
 		log.Printf("Succesfully loaded %d lines!", len(lines))
 	}
