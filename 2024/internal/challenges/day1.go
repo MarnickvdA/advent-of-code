@@ -1,8 +1,7 @@
-package main
+package challenges
 
 import (
 	"fmt"
-	"log"
 	"math"
 	"sort"
 	"strconv"
@@ -11,7 +10,7 @@ import (
 
 type DayOne struct{}
 
-func (DayOne) solvePartOne(input []string) (string, error) {
+func (DayOne) SolvePartOne(input []string) (string, error) {
 	var sum float64
 
 	var left, right []int
@@ -20,7 +19,7 @@ func (DayOne) solvePartOne(input []string) (string, error) {
 		segs := strings.Split(input[i], "   ")
 
 		if len(segs) != 2 {
-			log.Printf("invalid segments in line #%d with '%s'", i, input[i])
+			// log.Printf("invalid segments in line #%d with '%s'", i, input[i])
 			continue
 		}
 
@@ -41,7 +40,7 @@ func (DayOne) solvePartOne(input []string) (string, error) {
 	return fmt.Sprintf("%d", int(sum)), nil
 }
 
-func (DayOne) solvePartTwo(input []string) (string, error) {
+func (DayOne) SolvePartTwo(input []string) (string, error) {
 	sim := 0
 	rightCount := map[int]int{}
 
@@ -49,7 +48,7 @@ func (DayOne) solvePartTwo(input []string) (string, error) {
 		segs := strings.Split(input[i], "   ")
 
 		if len(segs) != 2 {
-			log.Printf("invalid segments in line #%d with '%s'", i, input[i])
+			// log.Printf("invalid segments in line #%d with '%s'", i, input[i])
 			continue
 		}
 
@@ -61,7 +60,7 @@ func (DayOne) solvePartTwo(input []string) (string, error) {
 		segs := strings.Split(input[i], "   ")
 
 		if len(segs) != 2 {
-			log.Printf("invalid segments in line #%d with '%s'", i, input[i])
+			// log.Printf("invalid segments in line #%d with '%s'", i, input[i])
 			continue
 		}
 
