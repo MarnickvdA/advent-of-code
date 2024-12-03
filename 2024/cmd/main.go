@@ -16,6 +16,7 @@ var flags struct {
 var challenges = map[int]c.Challenge{
 	1: c.DayOne{},
 	2: c.DayTwo{},
+	3: c.DayThree{},
 }
 
 func main() {

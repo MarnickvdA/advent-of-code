@@ -1,7 +1,6 @@
 package challenges
 
 import (
-	"log"
 	"math"
 	"strconv"
 	"strings"
@@ -28,8 +27,6 @@ func (DayTwo) SolvePartOne(input []string) (string, error) {
 }
 
 func checkRapport(levels []string, pI *int) bool {
-	log.Printf("Checking rapport %v", levels)
-
 	prevDiff := 0
 
 	for x := 1; x < len(levels); x++ {
@@ -106,8 +103,6 @@ func (DayTwo) SolvePartTwo(input []string) (string, error) {
 			ans++
 			continue
 		}
-
-		log.Printf("Failed line %s for index %d", line, x)
 	}
 
 	return strconv.Itoa(ans), nil
