@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"log"
+	"time"
 
 	c "aoc.abitofsoftware.com/internal/challenges"
 	"aoc.abitofsoftware.com/internal/data"
@@ -47,18 +48,23 @@ func main() {
 	}
 
 	var ans int
+	var elapsed time.Duration
 
 	if flags.part == 1 {
+		start := time.Now()
 		ans, err = c.SolvePartOne(input)
+		elapsed = time.Since(start)
 	}
 
 	if flags.part == 2 {
+		start := time.Now()
 		ans, err = c.SolvePartTwo(input)
+		elapsed = time.Since(start)
 	}
 
 	if err != nil {
 		log.Fatal("Challenge failed to be solved due to an error", err)
 	} else {
-		log.Printf("Solution to day %d part %d is '%d'", flags.day, flags.part, ans)
+		log.Printf("Solution to day %d part %d is '%d' (in %s)", flags.day, flags.part, ans, elapsed)
 	}
 }
