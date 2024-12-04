@@ -23,8 +23,8 @@ func TestDayTwoPartOne(t *testing.T) {
 		t.Error(err)
 	}
 
-	if ans != "2" {
-		t.Errorf("Expected 2, got '%s'", ans)
+	if ans != 2 {
+		t.Errorf("Expected 2, got '%d'", ans)
 	}
 }
 
@@ -46,8 +46,8 @@ func TestDayTwoPartTwo(t *testing.T) {
 		t.Error(err)
 	}
 
-	if ans != "4" {
-		t.Errorf("Expected 4, got '%s'", ans)
+	if ans != 4 {
+		t.Errorf("Expected 4, got '%d'", ans)
 	}
 }
 
@@ -70,7 +70,7 @@ func TestDayTwoPartTwoExtended(t *testing.T) {
 		t.Error(err)
 	}
 
-	if ans != "8" {
-		t.Errorf("Expected 8, got '%s'", ans)
+	if ans != 8 {
+		t.Errorf("Expected 8, got '%d'", ans)
 	}
 }

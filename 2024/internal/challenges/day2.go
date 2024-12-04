@@ -8,7 +8,7 @@ import (
 
 type DayTwo struct{}
 
-func (DayTwo) SolvePartOne(input []string) (string, error) {
+func (DayTwo) SolvePartOne(input []string) (int, error) {
 	ans := 0
 
 	for i := 0; i < len(input); i++ {
@@ -23,7 +23,7 @@ func (DayTwo) SolvePartOne(input []string) (string, error) {
 		}
 	}
 
-	return strconv.Itoa(ans), nil
+	return ans, nil
 }
 
 func checkRapport(levels []string, pI *int) bool {
@@ -70,7 +70,7 @@ func remove(slice []string, s int) []string {
 	return append(slice[:s], slice[s+1:]...)
 }
 
-func (DayTwo) SolvePartTwo(input []string) (string, error) {
+func (DayTwo) SolvePartTwo(input []string) (int, error) {
 	ans := 0
 
 	for i := 0; i < len(input); i++ {
@@ -105,7 +105,7 @@ func (DayTwo) SolvePartTwo(input []string) (string, error) {
 		}
 	}
 
-	return strconv.Itoa(ans), nil
+	return ans, nil
 }
 
 func isValid(curr, next, prevDiff int) bool {

@@ -1,7 +1,6 @@
 package challenges
 
 import (
-	"fmt"
 	"math"
 	"sort"
 	"strconv"
@@ -10,7 +9,7 @@ import (
 
 type DayOne struct{}
 
-func (DayOne) SolvePartOne(input []string) (string, error) {
+func (DayOne) SolvePartOne(input []string) (int, error) {
 	var sum float64
 
 	var left, right []int
@@ -37,10 +36,10 @@ func (DayOne) SolvePartOne(input []string) (string, error) {
 		sum += math.Abs(float64(left[i] - right[i]))
 	}
 
-	return fmt.Sprintf("%d", int(sum)), nil
+	return int(sum), nil
 }
 
-func (DayOne) SolvePartTwo(input []string) (string, error) {
+func (DayOne) SolvePartTwo(input []string) (int, error) {
 	sim := 0
 	rightCount := map[int]int{}
 
@@ -68,5 +67,5 @@ func (DayOne) SolvePartTwo(input []string) (string, error) {
 		sim += a * rightCount[a]
 	}
 
-	return fmt.Sprintf("%v", sim), nil
+	return sim, nil
 }

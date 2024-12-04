@@ -1,12 +1,8 @@
 package challenges
 
-import (
-	"strconv"
-)
-
 type DayFour struct{}
 
-func (DayFour) SolvePartOne(input []string) (string, error) {
+func (DayFour) SolvePartOne(input []string) (int, error) {
 	m := make([][]rune, len(input))
 	for i := range m {
 		m[i] = make([]rune, len(input[i]))
@@ -91,10 +87,10 @@ func (DayFour) SolvePartOne(input []string) (string, error) {
 		}
 	}
 
-	return strconv.Itoa(sum), nil
+	return sum, nil
 }
 
-func (DayFour) SolvePartTwo(input []string) (string, error) {
+func (DayFour) SolvePartTwo(input []string) (int, error) {
 	m := make([][]rune, len(input))
 	for i := range m {
 		m[i] = make([]rune, len(input[i]))
@@ -132,5 +128,5 @@ func (DayFour) SolvePartTwo(input []string) (string, error) {
 		}
 	}
 
-	return strconv.Itoa(sum), nil
+	return sum, nil
 }

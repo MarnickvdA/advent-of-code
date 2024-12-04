@@ -8,7 +8,7 @@ import (
 
 type DayThree struct{}
 
-func (DayThree) SolvePartOne(input []string) (string, error) {
+func (DayThree) SolvePartOne(input []string) (int, error) {
 	sum := 0
 
 	// retrieve all matches for regex mul(X,Y) where X & Y are between 1 and 3 digits.
@@ -27,16 +27,16 @@ func (DayThree) SolvePartOne(input []string) (string, error) {
 		b, err := strconv.Atoi(values[1])
 
 		if err != nil {
-			return "", err
+			return 0, err
 		}
 
 		sum += a * b
 	}
 
-	return strconv.Itoa(sum), nil
+	return sum, nil
 }
 
-func (DayThree) SolvePartTwo(input []string) (string, error) {
+func (DayThree) SolvePartTwo(input []string) (int, error) {
 	sum := 0
 
 	// retrieve all matches for regex mul(X,Y) where X & Y are between 1 and 3 digits.
@@ -84,16 +84,16 @@ func (DayThree) SolvePartTwo(input []string) (string, error) {
 
 		a, err := strconv.Atoi(values[0])
 		if err != nil {
-			return "", err
+			return 0, err
 		}
 
 		b, err := strconv.Atoi(values[1])
 		if err != nil {
-			return "", err
+			return 0, err
 		}
 
 		sum += a * b
 	}
 
-	return strconv.Itoa(sum), nil
+	return sum, nil
 }

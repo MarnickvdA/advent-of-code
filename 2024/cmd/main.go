@@ -46,7 +46,7 @@ func main() {
 		log.Fatal("Challenge does not exist, did you forget to add it?")
 	}
 
-	var ans string
+	var ans int
 
 	if flags.part == 1 {
 		ans, err = c.SolvePartOne(input)
@@ -59,6 +59,6 @@ func main() {
 	if err != nil {
 		log.Fatal("Challenge failed to be solved due to an error", err)
 	} else {
-		log.Printf("Solution to day %d part %d is '%s'", flags.day, flags.part, ans)
+		log.Printf("Solution to day %d part %d is '%d'", flags.day, flags.part, ans)
 	}
 }

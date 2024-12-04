@@ -22,8 +22,8 @@ func TestDayOnePartOne(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if ans != "11" {
-		t.Errorf("Expected 11, got %s", ans)
+	if ans != 11 {
+		t.Errorf("Expected 11, got %d", ans)
 	}
 }
 
@@ -44,7 +44,7 @@ func TestDayOnePartTwo(t *testing.T) {
 		t.Error(err)
 	}
 
-	if ans != "31" {
-		t.Errorf("Expected 31, got %s", ans)
+	if ans != 31 {
+		t.Errorf("Expected 31, got %d", ans)
 	}
 }

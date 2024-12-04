@@ -13,8 +13,8 @@ func TestSolveDayThreePartOne(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if ans != "161" {
-		t.Errorf("Expected 161, got '%s'", ans)
+	if ans != 161 {
+		t.Errorf("Expected 161, got '%d'", ans)
 	}
 }
 
@@ -29,7 +29,7 @@ func TestSolveDayThreePartTwo(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if ans != "48" {
-		t.Errorf("Expected 48, got '%s'", ans)
+	if ans != 48 {
+		t.Errorf("Expected 48, got '%d'", ans)
 	}
 }

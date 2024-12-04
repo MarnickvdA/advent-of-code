@@ -1,8 +1,8 @@
 package challenges
 
 type Challenge interface {
-	SolvePartOne(input []string) (string, error)
-	SolvePartTwo(input []string) (string, error)
+	SolvePartOne(input []string) (int, error)
+	SolvePartTwo(input []string) (int, error)
 }
 
 // type DayXXX struct{}

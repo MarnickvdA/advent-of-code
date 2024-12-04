@@ -25,7 +25,7 @@ MXMXAXMASX`
 		t.Fatal(err)
 	}
 
-	if ans != "18" {
-		t.Errorf("Expected 18, got '%s'", ans)
+	if ans != 18 {
+		t.Errorf("Expected 18, got '%d'", ans)
 	}
 }
