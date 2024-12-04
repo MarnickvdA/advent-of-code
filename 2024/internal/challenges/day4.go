@@ -24,52 +24,17 @@ func (DayFour) SolvePartOne(input []string) (int, error) {
 	//   .A.A.A.
 	//   S..S..S
 	//  6   5   4
-
-	checkNorth := func(x, y int) bool {
-		return y-3 >= 0 && m[y-1][x] == 'M' && m[y-2][x] == 'A' && m[y-3][x] == 'S'
-	}
-
-	checkNorthEast := func(x, y int) bool {
-		return y-3 >= 0 && x+3 < len(m[y]) && m[y-1][x+1] == 'M' && m[y-2][x+2] == 'A' &&
-			m[y-3][x+3] == 'S'
-	}
-
-	checkEast := func(x, y int) bool {
-		return x+3 < len(m[y]) && m[y][x+1] == 'M' && m[y][x+2] == 'A' && m[y][x+3] == 'S'
-	}
-
-	checkSouthEast := func(x, y int) bool {
-		return y+3 < len(m) && x+3 < len(m[y+3]) && m[y+1][x+1] == 'M' && m[y+2][x+2] == 'A' &&
-			m[y+3][x+3] == 'S'
-	}
-
-	checkSouth := func(x, y int) bool {
-		return y+3 < len(m) && m[y+1][x] == 'M' && m[y+2][x] == 'A' && m[y+3][x] == 'S'
-	}
-
-	checkSouthWest := func(x, y int) bool {
-		return y+3 < len(m) && x-3 >= 0 && m[y+1][x-1] == 'M' && m[y+2][x-2] == 'A' &&
-			m[y+3][x-3] == 'S'
-	}
-
-	checkWest := func(x, y int) bool {
-		return x-3 >= 0 && m[y][x-1] == 'M' && m[y][x-2] == 'A' && m[y][x-3] == 'S'
-	}
-
-	checkNorthWest := func(x, y int) bool {
-		return y-3 >= 0 && x-3 >= 0 && m[y-1][x-1] == 'M' && m[y-2][x-2] == 'A' &&
-			m[y-3][x-3] == 'S'
-	}
-
-	directions := []func(int, int) bool{
-		checkNorth,     // #1
-		checkNorthEast, // #2
-		checkEast,      // #3
-		checkSouthEast, // #4
-		checkSouth,     // #5
-		checkSouthWest, // #6
-		checkWest,      // #7
-		checkNorthWest, // #8
+	ds := []struct {
+		dx, dy int
+	}{
+		{dx: 0, dy: -1},  // North
+		{dx: 1, dy: -1},  // North East
+		{dx: 1, dy: 0},   // East
+		{dx: 1, dy: 1},   // South East
+		{dx: 0, dy: 1},   // South
+		{dx: -1, dy: 1},  // South West
+		{dx: -1, dy: 0},  // West
+		{dx: -1, dy: -1}, // North West
 	}
 
 	sum := 0
@@ -79,8 +44,15 @@ func (DayFour) SolvePartOne(input []string) (int, error) {
 				continue
 			}
 
-			for _, direction := range directions {
-				if direction(x, y) {
+			for _, d := range ds {
+				if y+(d.dy*3) < 0 || y+(d.dy*3) >= len(m) ||
+					x+(d.dx*3) < 0 || x+(d.dx*3) >= len(m[0]) {
+					continue
+				}
+
+				if m[y+(d.dy*1)][x+(d.dx*1)] == 'M' &&
+					m[y+(d.dy*2)][x+(d.dx*2)] == 'A' &&
+					m[y+(d.dy*3)][x+(d.dx*3)] == 'S' {
 					sum++
 				}
 			}
@@ -100,7 +72,11 @@ func (DayFour) SolvePartTwo(input []string) (int, error) {
 		}
 	}
 
-	// Instead of X, we are going to traverse based on the 'hit' of letter A.
+	allowed := map[rune]bool{
+		'M': true,
+		'S': true,
+	}
+
 	sum := 0
 	for y := range m {
 		for x := range m[y] {
@@ -113,10 +89,6 @@ func (DayFour) SolvePartTwo(input []string) (int, error) {
 				continue
 			}
 
-			allowed := map[rune]bool{
-				'M': true,
-				'S': true,
-			}
 			if !allowed[m[y-1][x-1]] || !allowed[m[y-1][x+1]] || !allowed[m[y+1][x-1]] ||
 				!allowed[m[y+1][x+1]] {
 				continue
