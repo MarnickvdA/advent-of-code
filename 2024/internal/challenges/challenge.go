@@ -7,10 +7,10 @@ type Challenge interface {
 
 // type DayXXX struct{}
 //
-// func (DayXXX) SolvePartOne(input []string) (string, error) {
-// 	return "", nil
+// func (DayXXX) SolvePartOne(input []string) (int, error) {
+// 	return 0, nil
 // }
 //
-// func (DayXXX) SolvePartTwo(input []string) (string, error) {
-// 	return "", nil
+// func (DayXXX) SolvePartTwo(input []string) (int, error) {
+// 	return 0, nil
 // }
