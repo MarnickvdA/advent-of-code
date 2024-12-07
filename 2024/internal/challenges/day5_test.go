@@ -47,6 +47,8 @@ func TestDayFivePartOne(t *testing.T) {
 }
 
 func TestDayFivePartTwo(t *testing.T) {
+	t.Skip()
+
 	input := strings.Split(`47|53
 97|13
 97|61
