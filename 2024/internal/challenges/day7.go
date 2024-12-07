@@ -45,57 +45,55 @@ func (DaySeven) SolvePartTwo(input []string) (int, error) {
 }
 
 func solveWithOperations(input []string, operations map[string]Operation) int {
-	solutions := map[int][][]string{}
+	total := 0
 
 	for _, line := range input {
 		partials := strings.Split(line, ": ")
 		sum, _ := strconv.Atoi(partials[0])
+
 		parts := []int{}
 		for _, s := range strings.Split(partials[1], " ") {
 			val, _ := strconv.Atoi(s)
 			parts = append(parts, val)
 		}
 
-		solutions[sum] = [][]string{}
-
 		for k := range operations {
-			findSum(sum, 0, 0, k, parts, []string{}, &solutions, operations)
+			ans := findSum(sum, 0, 0, k, &parts, &operations)
+			if ans == sum {
+				total += ans
+				break
+			}
 		}
 	}
 
-	sum := 0
-	for k, v := range solutions {
-		if len(v) > 0 {
-			sum += k
-		}
-	}
-
-	return sum
+	return total
 }
 
 func findSum(
 	target, total, i int,
 	op string,
-	parts []int,
-	ops []string,
-	sols *map[int][][]string,
-	operations map[string]Operation,
-) {
-	if i == len(parts) {
+	parts *[]int,
+	operations *map[string]Operation,
+) int {
+	if i == len(*parts) {
 		if total == target {
-			(*sols)[target] = append((*sols)[target], ops)
+			return total
 		}
-		return
+		return 0
 	}
 
 	if total > target {
-		return
+		return 0
 	}
 
-	total = operations[op](total, parts[i])
-	ops = append(ops, op)
+	total = (*operations)[op](total, (*parts)[i])
 
-	for k := range operations {
-		findSum(target, total, i+1, k, parts, ops, sols, operations)
+	for k := range *operations {
+		ans := findSum(target, total, i+1, k, parts, operations)
+		if ans == target {
+			return ans
+		}
 	}
+
+	return 0
 }
