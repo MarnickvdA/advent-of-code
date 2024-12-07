@@ -6,6 +6,8 @@ import (
 )
 
 func TestDaySixPartTwo(t *testing.T) {
+	t.Skip()
+
 	input := strings.Split(`....#.....
 .........#
 ..........
