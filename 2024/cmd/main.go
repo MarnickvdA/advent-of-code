@@ -23,6 +23,7 @@ var challenges = map[int]c.Challenge{
 	6: c.DaySix{},
 	7: c.DaySeven{},
 	8: c.DayEight{},
+	9: c.DayNine{},
 }
 
 func main() {
