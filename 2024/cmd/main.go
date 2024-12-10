@@ -15,15 +15,16 @@ var flags struct {
 }
 
 var challenges = map[int]c.Challenge{
-	1: c.DayOne{},
-	2: c.DayTwo{},
-	3: c.DayThree{},
-	4: c.DayFour{},
-	5: c.DayFive{},
-	6: c.DaySix{},
-	7: c.DaySeven{},
-	8: c.DayEight{},
-	9: c.DayNine{},
+	1:  c.DayOne{},
+	2:  c.DayTwo{},
+	3:  c.DayThree{},
+	4:  c.DayFour{},
+	5:  c.DayFive{},
+	6:  c.DaySix{},
+	7:  c.DaySeven{},
+	8:  c.DayEight{},
+	9:  c.DayNine{},
+	10: c.DayTen{},
 }
 
 func main() {
