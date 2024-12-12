@@ -1,16 +1,18 @@
 package challenges
 
+type ChallengeFn func([]string) (int, error)
+
 type Challenge interface {
 	SolvePartOne(input []string) (int, error)
 	SolvePartTwo(input []string) (int, error)
 }
 
-// type DayXXX struct{}
+// type DayX struct{}
 //
-// func (DayXXX) SolvePartOne(input []string) (int, error) {
+// func (DayX) SolvePartOne(input []string) (int, error) {
 // 	return 0, nil
 // }
 //
-// func (DayXXX) SolvePartTwo(input []string) (int, error) {
+// func (DayX) SolvePartTwo(input []string) (int, error) {
 // 	return 0, nil
 // }
