@@ -1,7 +1,6 @@
 package challenges
 
 import (
-	"fmt"
 	"strings"
 	"testing"
 )
@@ -102,8 +101,6 @@ AAAAAA`, "\n")
 
 	for _, test := range tests {
 		ans, err := test.fn(test.in)
-
-		fmt.Printf("\nRunning %s\n", test.id)
 
 		if err != nil {
 			t.Error(err)
