@@ -124,3 +124,7 @@ func (r *Robot) runSimulation(ticks int) {
 		r.y = ((r.y+r.dy)%HEIGHT + HEIGHT) % HEIGHT
 	}
 }
+
+func mod(a, b int) int {
+	return (a%b + b) % b
+}
